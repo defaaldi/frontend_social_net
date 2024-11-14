@@ -1,0 +1,851 @@
+/*ESTILOS GENERALES*/
+:root {
+  --color-general-text: #333;
+  --color-backgroud-navbar: #01c38e;
+  --color-text-navbar: white;
+  --color-hover-navbar: #01c38e;
+
+  --color-border-headers: #eee;
+
+  --color-background-btn-success: #5cb85c;
+  --color-border-btn-success: #4cae4c;
+  --color-background-btn-success-hover: #449d44;
+  --color-border-btn-success-hover: #398439;
+
+  --color-background-btn-delete: #01c38f9a;
+  --color-border-btn-delete: #1c38f9a;
+  --color-background-btn-delete-hover: #0ff007;
+  --color-border-btn-delete-hover: #0ff007;
+
+  --color-border-post: #ddd;
+  --color-name-user: #01c38e;
+
+  --color-text-black: #555;
+  --color-text-nickname: #969393;
+  --color-number-stats: green;
+
+  --color-border-textarea: #ccc;
+  --color-border-textarea-focus: #66afe9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--color-general-text);
+}
+
+.layout {
+  display: grid;
+  grid-template-areas:
+    "nav nav "
+    "content aside";
+  grid-template-rows: 60px auto auto;
+  grid-template-columns: 70% 30%;
+  width: 100%;
+  height: 100%;
+  max-height: 80rem;
+}
+
+.layout.error {
+  grid-template-columns: 100% !important;
+}
+
+.layout-container {
+  display: flex;
+}
+
+/*ESTILOS NAVBAR*/
+.layout__navbar {
+  width: 100%;
+  grid-area: nav;
+  background-color: var(--color-backgroud-navbar);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2rem;
+  height: 5.3rem;
+}
+
+.layout__navbar * {
+  color: var(--color-text-navbar);
+}
+
+.navbar__title {
+  font-size: 24px;
+  margin: 10px auto;
+  width: 200PX;
+}
+
+.navbar__container-lists {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+}
+
+.container-lists__menu-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu-list__link {
+  padding: 1.8rem;
+}
+
+.menu-list__title {
+  padding: 0.5rem;
+}
+
+.navbar__title:hover,
+.menu-list__link:hover,
+.list-end__link:hover,
+.list-end__item:first-child:hover {
+  background-color: var(--color-hover-navbar);
+}
+
+.container-lists__list-end {
+  display: flex;
+  align-items: center;
+}
+
+.list-end__item:first-child {
+  padding: 0.6rem;
+}
+
+.list-end__img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 3.2rem;
+}
+
+.list-end__link {
+  padding: 1.8rem;
+}
+
+.list-end__name {
+  padding: 0.5rem;
+}
+
+/*ESTILOS DE CONTENIDO*/
+.layout__content {
+  flex: 1;
+  grid-area: content;
+  padding: 0 1.5rem;
+  height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+}
+
+.content__login {
+  margin-top: 4.5rem;
+}
+
+.content__header,
+.aside__header {
+  width: 100%;
+  border-bottom: 1px solid var(--color-border-headers);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* Centrar horizontalmente */
+}
+
+.content__title,
+.aside__title {
+  font-size: 3.5rem;
+  margin-right: 1rem;
+  font-weight: 750;
+  color: #01c38e;
+}
+
+.content__button {
+  background-color: var(--color-background-btn-success);
+  color: var(--color-text-navbar);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border-btn-success);
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.content__button:hover,
+.content__btn-more-post:hover {
+  background-color: var(--color-background-btn-success-hover);
+  border-color: var(--color-border-btn-success-hover);
+}
+
+.content__posts {
+  width: 100%;
+}
+
+.posts__post {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--color-border-post);
+  padding: 1.5rem;
+}
+
+.post__container {
+  display: flex;
+  flex-direction: row;
+}
+
+.post__image-user {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 100rem;
+  margin-right: 1.5rem;
+  overflow: hidden;
+}
+
+.post__user-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 3.2rem;
+}
+
+.post__user-info {
+  margin-top: 1rem;
+}
+
+/* Estilos para las imágenes de las publicaciones*/
+
+.post__user-image,
+.post__image-publication {
+  width: 100%; /* Ajusta al 100% del contenedor padre */
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-width: 80%; /* Ajusta el tamaño máximo de la imagen en un 50% del contenedor */
+  max-height: 300px; /* Máxima altura de la imagen */
+  object-fit: cover; /* Para mantener la proporción */
+}
+
+.publication-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.publication-detail-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.publication-detail-profile {
+  text-align: center;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.publication-detail-content {
+  width: 80%;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.publication-detail-user-info {
+  text-align: left;
+}
+
+.publication-detail-user-info h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.publication-image {
+  width: 80%; /* 80% del ancho del contenedor padre */
+  display: block;
+  margin: 0 auto; /* Centrar la imagen horizontalmente */
+  height: auto; /* Mantener la proporción de la imagen */
+}
+
+.publication-text {
+  margin-bottom: 20px; /* Ajusta el valor según lo que necesites */
+}
+
+.user-nick {
+  font-size: 1.2rem;
+  color: gray;
+}
+
+.btn-back {
+  background-color: #5cb85c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-back:hover {
+  background-color: #449d44;
+}
+
+.user-info__name {
+  color: var(--color-name-user);
+}
+
+.user-info__create-date {
+  color: gray;
+}
+
+.post__content {
+  margin: 1rem 0;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.post__buttons {
+  display: flex;
+  align-items: center;
+}
+
+.post__button {
+  color: var(--color-text-navbar);
+  padding: 1rem 1.5rem;
+  font-size: 1.4rem;
+  border-radius: 0.4rem;
+  background-color: var(--color-background-btn-delete);
+  border-color: var(--color-border-btn-delete);
+}
+
+.post__button--green {
+  background-color: var(--color-background-btn-success);
+  border-color: var(--color-border-btn-success);
+}
+.post__button.post__button--green:hover {
+  background-color: var(--color-background-btn-success-hover);
+  border-color: var(--color-border-btn-success-hover);
+}
+
+.post__button:hover {
+  background-color: var(--color-background-btn-delete-hover);
+  border-color: var(--color-border-btn-delete-hover);
+}
+
+.content__container-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content__btn-more-post {
+  background-color: var(--color-background-btn-success);
+  color: var(--color-text-navbar);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border-btn-success);
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+/*ESTILOS BARRA LATERAL*/
+.layout__aside {
+  display: flex;
+  flex-direction: column;
+  grid-area: aside;
+  margin-right: 2rem;
+}
+
+.aside__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  
+}
+
+.aside__profile-info {
+  border: 1px solid var(--color-border-post);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  border-radius: 0.4rem;
+ 
+}
+
+.profile-info__general-info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;  
+}
+
+
+.general-info__container-avatar-nav {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 100rem;
+  margin-right: 1.5rem;
+  overflow: hidden;
+}
+
+
+.img-avatar-nav {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  margin-right: 1.5rem;
+  overflow: hidden;
+}
+
+.container-avatar__img-nav {
+  height: 100%;
+}
+
+.container-names__name {
+  color: var(--color-text-black);
+  font-size: 1.7rem;
+}
+
+.container-names__nickname {
+  color: var(--color-text-nickname);
+  font-size: 1.7rem;
+}
+
+.profile-info__stats {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid var(--color-border-headers);
+}
+
+.stats__following:first-child {
+  padding-left: 0.6rem;
+}
+
+.stats__following {
+  margin-top: 1rem;
+  padding: 0 1.8rem;
+  border-right: 2px solid var(--color-border-headers);
+  text-align: center;
+}
+
+.following__title {
+  display: block;
+  font-weight: bold;
+  color: var(--color-text-black);
+}
+
+.following__number {
+  font-weight: bold;
+  color: var(--color-number-stats);
+}
+
+.following__link:hover > .following__number {
+  color: var(--color-hover-navbar);
+}
+
+.aside__container-form {
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid var(--color-border-post);
+  padding: 2.5rem;
+  border-radius: 0.4rem;
+}
+
+.container-form__form-post {
+  width: 100%;
+  max-width: 100%;
+}
+
+form {
+  max-width: 100%;
+}
+
+.aside__container-form form {
+  width: 100%;
+  max-width: 100%;
+}
+
+.form-post__inputs,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  margin-bottom: 1rem;
+}
+
+.form-post__label,
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.form-post__textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0.6rem 1.2rem;
+  font-size: 14px;
+  color: var(--color-text-black);
+  border: 1px solid var(--color-border-textarea);
+  border-radius: 4px;
+  outline: none;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+  transition: all ease-in-out 150ms;
+}
+
+.form-post__textarea:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus textarea:focus {
+  border-color: var(--color-border-textarea-focus);
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+}
+
+.form-post__image {
+  width: 100%;
+}
+
+.form-post__btn-submit,
+input[type="submit"],
+button {
+  background-color: var(--color-background-btn-success);
+  color: var(--color-text-navbar) !important;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border-btn-success);
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  cursor: pointer;
+  font-size: 1.4rem;
+  margin: 4px;
+}
+
+.alert {
+  width: 50%;
+  display: block;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+}
+
+.alert-success {
+  background-color: #5cb85c;
+  border: 1px solid #0c8e0c;
+  color: white;
+}
+
+.alert-danger {
+  background-color: #f74c47;
+  border: 1px solid #ff192c;
+  color: white;
+}
+
+.form-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px; /* Limita el ancho del formulario */
+  padding: 2rem; /* Agrega algo de padding alrededor del formulario */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opcional: agrega una sombra */
+  border-radius: 10px; /* Opcional: redondea las esquinas */
+  background-color: #fff; /* Opcional: establece un color de fondo */
+  margin: 0 auto; /* Centrar horizontalmente */
+}
+
+.no-following-message,
+.no-followers-message {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.highlight-gente {
+  color: var(--color-name-user);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+
+
+/*
+===========================================================
+===========================================================
+===========================================================
+*/
+/*MIS ESTILOS CSS LOGIN Y REGISTER*/
+/*
+===========================================================
+===========================================================
+===========================================================
+*/
+
+* Contenedor principal de login */
+.login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+/* Contenedor del wrapper que rodea todo */
+.loginWrapper {
+  display: flex;
+  width: 70vw;
+  height: 90vh;
+  position:absolute;
+  left: 8%;
+  top: 25%;
+  margin: auto;
+}
+
+.loginWrapper>div {
+  justify-content: flex-start;
+}
+
+
+/* Estilo para el contenedor izquierdo */
+.loginLeft {
+  box-sizing: border-box;
+  flex: 1;  
+  flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
+  flex-direction: column; /* Alineación en columna */
+  width: 50vw;
+  margin: 10px;
+  padding: 10px;
+  max-width: 40vw;
+  max-height: auto;
+}
+
+/* Estilo para el logo */
+.loginLogo {
+  font-size: 100px;
+  font-weight: 750;
+  color: #01c38e;
+}
+
+/* Estilo para la descripción */
+.logoDesc {
+  font-size: 33px;
+  font-weight: 500;
+  margin: 0; /* Elimina márgenes */
+}
+
+/* Estilo para el contenedor derecho */
+.loginRight {
+  flex: 1;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  width: 50vw;
+  margin: 10px;
+  padding: 10px;
+  max-width: 60vw;
+  max-height: auto;
+}
+
+.form-container {
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 500px; /* Ancho máximo */
+  max-height: auto;
+}
+
+.div-container {
+  padding: 5px;
+  width: 100%;
+  max-width: 500px; /* Ancho máximo */
+  max-height: auto;
+}
+
+.titleForm {
+  font-size: 20px;
+  font-weight: 500;
+  color: #01c38e;
+  margin-bottom: 25px;
+}
+
+.loginBox {
+  height: 300px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.loginInput {
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.loginInput:focus {
+  outline: none;
+}
+
+.mi-btn-Button {
+  width: 95%;
+  height: 50px;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  background-color: #01c38e;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 8px;
+  margin: 10px auto; /* Centra horizontalmente */
+  padding: 10px; /* Añade padding para mejor apariencia */
+  display: block; /* Asegura que el botón ocupe el ancho especificado */
+}
+/* Efecto hover para el botón principal */
+.mi-btn-Button:hover {
+  background-color: #019f74; /* Cambia el color de fondo al pasar el mouse */
+  transform: scale(1.05); /* Hace que el botón crezca un poco */
+}
+
+.goRegister {
+  width: 82%;
+  height: 40px;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  background-color: #01c38e;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 8px;
+  margin: 10px auto; /* Centra horizontalmente */
+  padding: 10px; /* Añade padding para mejor apariencia */
+  display: block; /* Asegura que el botón ocupe el ancho especificado */
+}
+
+
+
+
+/* Efecto hover para el botón "Go Register" */
+.goRegister:hover {
+  background-color: #019f74; /* Cambia el color de fondo al pasar el mouse */
+  transform: scale(1.05); /* Hace que el botón crezca un poco */
+}
+
+.btn-pagination{
+  width: 15%;
+  height: 40px;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  background-color: #01c38e;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 8px;  
+  display: block; /* Asegura que el botón ocupe el ancho especificado */
+}
+
+/* Efecto hover para el botón "Go Register" */
+.btn-pagination:hover {
+  background-color: #019f74; /* Cambia el color de fondo al pasar el mouse */
+  transform: scale(1.05); /* Hace que el botón crezca un poco */
+}
+
+.loginForgot {
+  text-align: center;
+  color: #01c38e;
+}
+
+
+
+/*
+===========================================================
+===========================================================
+===========================================================
+*/
+/*MIS ESTILOS CSS FONDO AVATAR Y SUPERPONER*/
+/*
+===========================================================
+===========================================================
+===========================================================
+*/
+
+.avatar {
+  display: flex;
+  justify-content: center; /* Centra la imagen horizontalmente */
+  align-items: center;     /* Centra la imagen verticalmente */
+}
+
+.general-info__container-avatar {
+  display: flex;
+  justify-content: center; /* Centra la imagen dentro de su contenedor */
+  align-items: center;     /* Centra la imagen dentro de su contenedor */
+}
+
+.container-avatar__img {
+  max-width: 100px;   /* Limita el tamaño máximo de la imagen */
+  max-height: 100px;  /* Limita el tamaño máximo de la imagen */
+  border-radius: 50%; /* Hace que la imagen tenga bordes redondeados */  
+}
+
+
+/* Ocultar el input de tipo "file" */
+.file-input {
+  display: none;
+}
+.center_load_avatar {
+  padding: 8px 20px;
+  border: 1px solid #AAA;
+  border-radius: 8px;
+  width: 45%;
+  display: flex;                /* Hacer que el contenedor sea un flex container */
+  align-items: center;          /* Centrar el contenido verticalmente */
+  justify-content: center;      /* Centrar el contenido horizontalmente */
+  background-color: rgba(1, 159, 116, 0.7); /* Color de fondo con transparencia */
+  margin: auto;
+}
+
+.center_load_avatar label {
+  font-size: 16px;              /* Tamaño del texto */
+  color: white;                 /* Color del texto */
+  cursor: pointer;             /* Cursor tipo puntero cuando se pasa sobre el label */
+}

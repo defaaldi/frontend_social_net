@@ -1,0 +1,65 @@
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  justify-content: center; /* Horizontally center the element */
+  align-items: center;
+  height: 100vh; /* Altura de la ventana */
+  padding: 20px;
+  width: 100%;
+}
+
+/* Contenedor del contenido */
+.content {
+  display: flex;
+  flex-direction: column; /* Alinear contenido en columna */
+  align-items: center; /* Centrar elementos */
+  gap: 40px; /* Espacio entre elementos */
+  max-width: 1000px; /* Ancho máximo */
+  width: 90%; /* Ancho del contenedor */
+  text-align: center; /* Alinear texto al centro */
+}
+
+/* Estilos para la imagen */
+.image {
+  width: 60%; /* Tamaño de la imagen */
+  height: auto;
+}
+
+/* Contenedor del texto */
+.text-content {
+  max-width: 80%; /* Ancho máximo del contenido de texto */
+}
+
+/* Estilos del título */
+.title {
+  font-weight: 900;
+  font-size: 3rem; /* Tamaño del título */
+  margin-bottom: 20px; /* Margen inferior */
+  font-family: 'Greycliff CF', sans-serif;
+}
+
+/* Estilos del párrafo */
+.text {
+  color: #6c757d; /* Color del texto */
+  font-size: 1.25rem; /* Tamaño del texto */
+  line-height: 1.6; /* Interlineado */
+}
+
+/* Estilos del botón */
+.button {
+  display: inline-block;
+  padding: 15px 30px; /* Padding del botón */
+  margin-top: 30px; /* Margen superior */
+  border: 2px solid #000; /* Borde */
+  background-color: #ff0000; /* Color de fondo rojo */
+  color: #fff; /* Color del texto blanco */
+  cursor: pointer; /* Cursor */
+  font-size: 1.25rem; /* Tamaño del texto */
+  transition: background-color 0.3s, color 0.3s; /* Transiciones */
+}
+
+.button:hover {
+  background-color: #ffc0cb; /* Color de fondo rosa al pasar el mouse */
+  color: #000 !important; /* Color del texto negro al pasar el mouse */
+}
