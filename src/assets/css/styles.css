@@ -88,7 +88,7 @@ body {
 .navbar__title {
   font-size: 24px;
   margin: 10px auto;
-  width: 200PX;
+  width: 200px;
 }
 
 .navbar__container-lists {
@@ -383,7 +383,6 @@ body {
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  
 }
 
 .aside__profile-info {
@@ -391,15 +390,13 @@ body {
   padding: 2.5rem;
   margin-bottom: 2rem;
   border-radius: 0.4rem;
- 
 }
 
 .profile-info__general-info {
   width: 100%;
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
 }
-
 
 .general-info__container-avatar-nav {
   width: 7.5rem;
@@ -408,7 +405,6 @@ body {
   margin-right: 1.5rem;
   overflow: hidden;
 }
-
 
 .img-avatar-nav {
   width: 4rem;
@@ -598,8 +594,6 @@ button {
   font-weight: bold;
 }
 
-
-
 /*
 ===========================================================
 ===========================================================
@@ -612,7 +606,7 @@ button {
 ===========================================================
 */
 
-* Contenedor principal de login */
+/* Contenedor principal de login */ 
 .login {
   width: 100%;
   height: 100%;
@@ -625,21 +619,20 @@ button {
   display: flex;
   width: 70vw;
   height: 90vh;
-  position:absolute;
+  position: absolute;
   left: 8%;
   top: 25%;
   margin: auto;
 }
 
-.loginWrapper>div {
+.loginWrapper > div {
   justify-content: flex-start;
 }
-
 
 /* Estilo para el contenedor izquierdo */
 .loginLeft {
   box-sizing: border-box;
-  flex: 1;  
+  flex: 1;
   flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
   flex-direction: column; /* Alineación en columna */
   width: 50vw;
@@ -675,6 +668,7 @@ button {
   max-height: auto;
 }
 
+/* Estilo para formulario */
 .form-container {
   padding: 5px;
   border-radius: 8px;
@@ -760,16 +754,13 @@ button {
   display: block; /* Asegura que el botón ocupe el ancho especificado */
 }
 
-
-
-
 /* Efecto hover para el botón "Go Register" */
 .goRegister:hover {
   background-color: #019f74; /* Cambia el color de fondo al pasar el mouse */
   transform: scale(1.05); /* Hace que el botón crezca un poco */
 }
 
-.btn-pagination{
+.btn-pagination {
   width: 15%;
   height: 40px;
   justify-content: center; /* Centra horizontalmente */
@@ -780,7 +771,7 @@ button {
   font-weight: 500;
   cursor: pointer;
   text-align: center;
-  border-radius: 8px;  
+  border-radius: 8px;
   display: block; /* Asegura que el botón ocupe el ancho especificado */
 }
 
@@ -794,8 +785,6 @@ button {
   text-align: center;
   color: #01c38e;
 }
-
-
 
 /*
 ===========================================================
@@ -812,21 +801,20 @@ button {
 .avatar {
   display: flex;
   justify-content: center; /* Centra la imagen horizontalmente */
-  align-items: center;     /* Centra la imagen verticalmente */
+  align-items: center; /* Centra la imagen verticalmente */
 }
 
 .general-info__container-avatar {
   display: flex;
   justify-content: center; /* Centra la imagen dentro de su contenedor */
-  align-items: center;     /* Centra la imagen dentro de su contenedor */
+  align-items: center; /* Centra la imagen dentro de su contenedor */
 }
 
 .container-avatar__img {
-  max-width: 100px;   /* Limita el tamaño máximo de la imagen */
-  max-height: 100px;  /* Limita el tamaño máximo de la imagen */
-  border-radius: 50%; /* Hace que la imagen tenga bordes redondeados */  
+  max-width: 100px; /* Limita el tamaño máximo de la imagen */
+  max-height: 100px; /* Limita el tamaño máximo de la imagen */
+  border-radius: 50%; /* Hace que la imagen tenga bordes redondeados */
 }
-
 
 /* Ocultar el input de tipo "file" */
 .file-input {
@@ -834,18 +822,23 @@ button {
 }
 .center_load_avatar {
   padding: 8px 20px;
-  border: 1px solid #AAA;
+  border: 1px solid #aaa;
   border-radius: 8px;
   width: 45%;
-  display: flex;                /* Hacer que el contenedor sea un flex container */
-  align-items: center;          /* Centrar el contenido verticalmente */
-  justify-content: center;      /* Centrar el contenido horizontalmente */
-  background-color: rgba(1, 159, 116, 0.7); /* Color de fondo con transparencia */
+  display: flex; /* Hacer que el contenedor sea un flex container */
+  align-items: center; /* Centrar el contenido verticalmente */
+  justify-content: center; /* Centrar el contenido horizontalmente */
+  background-color: rgba(
+    1,
+    159,
+    116,
+    0.7
+  ); /* Color de fondo con transparencia */
   margin: auto;
 }
 
 .center_load_avatar label {
-  font-size: 16px;              /* Tamaño del texto */
-  color: white;                 /* Color del texto */
-  cursor: pointer;             /* Cursor tipo puntero cuando se pasa sobre el label */
+  font-size: 16px; /* Tamaño del texto */
+  color: white; /* Color del texto */
+  cursor: pointer; /* Cursor tipo puntero cuando se pasa sobre el label */
 }
